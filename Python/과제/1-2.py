@@ -1,0 +1,6 @@
+name = input()
+kor = int(input())
+math = int(input())
+eng = int(input())
+avg = int((kor + math + eng) / 3)
+print("Name : %s\nKor : %d\nMath : %d\nEng : %d\nAvg : %d"%(name, kor, math, eng, avg))
