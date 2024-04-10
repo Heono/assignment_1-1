@@ -1,20 +1,17 @@
 #include <stdio.h>
 
 int main() {
-    int n = 0, t = 0, s = 0;
-    scanf("%d", &n);
+    int a;
+    int c = 0;
+    scanf("%d", &a);
 
-    while (n/10 != 0) {
-        t = n;
-        s = 0;
-        while (t != 0) {
-            s += t % 10;
-            t /= 10;
+    for (int x = 0; x < a; x++) {
+        for (int y = 0; y < a; y++) {
+            c += 1;
+            printf(" %d", c%10);
         }
-        n = s;
+        printf("\n");
     }
-
-    printf("%d", n);
 
     return 0;
 }
