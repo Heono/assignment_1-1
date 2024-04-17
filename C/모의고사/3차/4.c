@@ -3,29 +3,22 @@
 int main() {
     char c1, c2, a, b, c;
     scanf("%c%c-%c%c%c", &c1, &c2, &a, &b, &c);
-    int flag1 = 1;
-    int flag2 = 1;
+    int cnt = 0;
     char p = '0', q = '0', r = '0';
 
     for (char t1 = c1; t1 < c2 + 1; t1++) {
         for (char t2 = c1; t2 < c2 + 1; t2++) {
             for (char t3 = c1; t3 < c2 + 1; t3++) {
-                if (t1 == t2 && t2 == t3) {
-                    flag1 = 0;
+                if (t1 == t2 && t2 == t3) 
                     continue;
-                }
-                if (!(t2 == 'a' || t2 == 'e' || t2 == 'i' || t2 == 'o' || t2 == 'u')) {
-                    flag1 = 0;
-                    continue;
-                }
-                if (!((t1 <= t2 && t2 <= t3) || (t3 <= t2 && t2 <= t1))) {
-                    flag1 = 0;
-                    continue;
-                }
-
                 
-                flag1 = 1;
-                flag2 = 1;
+                if (!(t2 == 'a' || t2 == 'e' || t2 == 'i' || t2 == 'o' || t2 == 'u')) 
+                    continue;
+                
+                if (!((t1 <= t2 && t2 <= t3) || (t3 <= t2 && t2 <= t1))) 
+                    continue;
+                
+                cnt++;
                 printf("%c%c%c\n", t1, t2, t3);
 
                 if (t1 < a) {
@@ -45,8 +38,8 @@ int main() {
         }
     }
 
-    if (!flag1) printf("none\n");
+    if (!cnt) printf("none\n");
     if (p == '0' && q == '0' && r == '0') printf("none\n");
-
+    else printf("%c%c%c", p, q, r);
     return 0;
 }
