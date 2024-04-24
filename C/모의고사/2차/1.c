@@ -22,6 +22,7 @@ int main() {
 
         printf("%d ", a);
 
+        /*
         if (min == -1 && max == -1) {
             min = a;
             max = a;
@@ -29,6 +30,11 @@ int main() {
 
         min > a ? min = a : printf("");
         max < a ? max = a : printf("");
+        */
+
+        // 이게 훨씬 간결함
+        if (min == -1 || min > a) min = a;
+        if (max == -1 || max < a) max = a;
 
         while (a) {
             if ((a%10) == 3) cnt++;

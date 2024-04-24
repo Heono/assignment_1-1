@@ -1,52 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    char c1, c2, a, b, c;
-    scanf("%c%c-%c%c%c", &c1, &c2, &a, &b, &c);
-    int flag1 = 1;
-    int flag2 = 1;
-    char p = '0', q = '0', r = '0';
+    int n;
+    scanf("%d", &n);
 
-    for (char t1 = c1; t1 < c2 + 1; t1++) {
-        for (char t2 = c1; t2 < c2 + 1; t2++) {
-            for (char t3 = c1; t3 < c2 + 1; t3++) {
-                if (t1 == t2 && t2 == t3) {
-                    flag1 = 0;
-                    continue;
-                }
-                if (!(t2 == 'a' || t2 == 'e' || t2 == 'i' || t2 == 'o' || t2 == 'u')) {
-                    flag1 = 0;
-                    continue;
-                }
-                if (!((t1 <= t2 && t2 <= t3) || (t3 <= t2 && t2 <= t1))) {
-                    flag1 = 0;
-                    continue;
-                }
+    int pw;
 
-                
-                flag1 = 1;
-                flag2 = 1;
-                printf("%c%c%c\n", t1, t2, t3);
+    int isError = 0;
 
-                if (t1 < a) {
-                    p = t1, q = t2, r = t3;
-                }
-                else if (t1 == a) {
-                    if (t2 < b) {
-                        p = t1, q = t2, r = t3;
-                    }
-                    else if (t2 == b) {
-                        if (t3 < c) {
-                            p = t1, q = t2, r = t3;
-                        }
-                    }
-                }
-            }
-        }
+    int c1, c2, c3;
+
+    for (int k = 0; k < n; k++) {
+        scanf("%d", &pw);
+        if (pw < 10000 || pw > 99999) isError = 1;
+        if (k%100 != 0) isError = 1;
+        if (0 > (k/100)%10 || (k/100)%10 > 5) isError = 1;
+        
+        c1 = k/10000;
+        c2 = (k/1000)%10;
+        c3 = (k/100)%10;
+
+        if ((c1 == c2 && c2 == c3 && c3 == c1) || (c1 != c2 && c2 != c3 && c3 != c1)) isError = 1;
+        
+        if (isError) printf("Error\n");
+
+        isError = 0;
     }
-
-    if (!flag1) printf("none\n");
-    if (p == '0' && q == '0' && r == '0') printf("none\n");
-
-    return 0;
 }

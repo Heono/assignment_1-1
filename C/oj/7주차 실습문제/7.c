@@ -1,4 +1,3 @@
-/*
 #include <stdio.h>
 
 int main() {
@@ -44,10 +43,4 @@ int main() {
     else printf("%c%c%c", p, q, r);
     return 0;
 }
-*/
 
-#include <stdio.h>
-
-int main() {
-    
-}

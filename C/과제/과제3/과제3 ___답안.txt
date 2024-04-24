@@ -1,0 +1,308 @@
+-------------------------------------
+* [ 문제 1-1 ] 
+-------------------------------------
+#include <stdio.h>
+int main()
+{
+    int n, m, i, j=1;
+    scanf("%d", &n);
+    
+    
+    for(i = 0; i<n; i++) {
+        scanf("%d", &m);
+        printf("%d: ", m);
+        while(j<=m) {
+            if (m % j == 0)
+                 printf("%d ", j);
+            j++;
+        }
+        j=1;
+        printf("\n");
+    }
+    return 0;
+}
+-------------------------------------
+* [ 문제 1-2 ]
+-------------------------------------
+int main()
+{
+    int n, m, i, j=1, cnt = 0, max=0, max_m=0;
+    scanf("%d", &n);
+    
+    
+    for(i = 0; i<n; i++) {
+        scanf("%d", &m);
+        printf("%d: ", m);
+        cnt = 0;
+        while(j<=m) {
+            if (m % j == 0) {
+                 printf("%d ", j);
+                 cnt++;
+            }
+            j++;
+        }
+        printf("%d ", cnt);
+        if (cnt > max) {
+            max = cnt;
+            max_m = m;
+        }
+        j=1;
+        printf("\n");
+    }
+    printf("%d", max_m);
+    return 0;
+}
+-------------------------------------
+* [ 문제 2-1 ] 
+-------------------------------------
+#include <stdio.h>
+int main()
+{
+	int x, y, cnt, i, j;
+	int maxIdx = 0, maxDivisor = 0;
+
+	scanf("%d %d", &x, &y);
+
+	for (int i = x; i <= y; i++)
+	{
+		j = 1, cnt = 1;
+		while (i / 2 >= j)
+		{
+			if (i % j == 0)
+				cnt++;
+			j++;
+		}		
+
+		if (cnt > maxDivisor)
+		{
+			maxIdx = i;
+			maxDivisor = cnt;
+		}
+	}
+	printf("%d %d", maxIdx, maxDivisor);
+	return 0;
+}
+-------------------------------------
+* [ 문제 2-2 ] (2021)
+-------------------------------------
+#include <stdio.h>
+int main()
+{
+	int x, y, cnt, i, j;
+	int maxIdx = 0, maxDivisor = 0, maxExp = 0;
+	int tmpNum, numDivisor, sumExp;
+
+	scanf("%d %d", &x, &y);
+
+	for (int i = x; i <= y; i++)
+	{
+		numDivisor = 1;
+		tmpNum = i;
+		sumExp = 0;
+		for (int j = 2; j <= i && tmpNum != 1; j++)
+		{
+			cnt = 0;
+			while (tmpNum % j == 0 && tmpNum != 1)
+			{
+				tmpNum /= j;
+				cnt++;
+			}
+			numDivisor *= (cnt + 1);
+			sumExp += cnt;
+		}
+
+		if (numDivisor > maxDivisor)
+		{
+			maxIdx = i;
+			maxDivisor = numDivisor;
+			maxExp = sumExp;
+		}		
+	}
+
+	printf("%d %d %d", maxIdx, maxDivisor, maxExp);
+	return 0;
+}
+-------------------------------------------
+* [ 문제 3 ]   
+-------------------------------------------
+#include <stdio.h>
+int main(void) {
+	int p, c, cnt=1, max=1; // p = 이전 값, c = 현재 값
+
+	scanf("%d", &p);
+	while(1){
+		scanf("%d", &c);
+		if (c == 0) {
+			if (cnt > max) max = cnt;
+			break;
+		}
+		else if (p*c < 0) {
+			if (cnt > max) max = cnt;
+			cnt = 1;
+		}
+		else cnt++;
+		p = c; // 현재 값 저장 
+	}
+	printf("%d", max);
+	return 0;
+}
+-------------------------------------------
+* [ 문제 4-1 ] 
+-------------------------------------------
+#include <stdio.h>
+int main()
+{
+	int t, n, cnt1 = 0, cnt2 = 0, cnt3 = 0;	
+	scanf("%d", &t);
+	while (1) {
+		scanf("%d", &n);
+		if (n==0) {
+			break;
+		}
+		else {
+		if (n == t)
+			cnt1++;
+		else if (n < t)
+			cnt2++;
+		else if (n > t)
+			cnt3++;
+		}
+	}
+	printf("%d %d %d", cnt1, cnt2, cnt3);	
+	return 0;
+}
+-------------------------------------------
+* [ 문제 4-2 ] 
+-------------------------------------------
+#include <stdio.h>
+int main()
+{
+	int t, n, m, cnt1 = 0, cnt2 = 0, cnt3 = 0;
+	scanf("%d", &t);
+	while (1) {
+		scanf("%d", &n);		
+		if (n == 0) {
+			break;
+		}
+		else {
+			while (n)
+			{
+				m = n % 10;
+				n = n / 10;
+				if (m == t)
+					cnt1++;
+				else if (m < t)
+					cnt2++;
+				else if (m > t)
+					cnt3++;
+			}
+		}
+	}
+	printf("%d %d %d", cnt1, cnt2, cnt3);
+	return 0;
+}
+-------------------------------------------
+* [ 문제 5-1 ] 
+-------------------------------------------
+#include <stdio.h>
+int main() {
+	int N, M = 0 ;
+	scanf("%d", &N);
+	while (N) {
+		M = N % 10;
+		printf("%d", M);
+		N = N / 10;
+	}
+	return 0;
+}
+-------------------------------------------
+* [ 문제 5-2 ] 
+-------------------------------------------
+#include <stdio.h>
+int main() {
+	int N, M = 0;
+	scanf("%d", &N);
+	while (N) {
+		M *= 10;
+		M += N % 10;
+		N /= 10;
+	}
+	printf("%d", M * M);
+	return 0;
+}
+-------------------------------------------
+* [ 문제 5-3 ] 
+-------------------------------------------
+#include <stdio.h>
+int main() {
+	int N, Me = 0, Mo=0;
+	scanf("%d", &N);
+	while (N) {
+		if (N % 2 == 0) {
+			Me *= 10;
+			Me += N % 10;
+			N /= 10;
+		}
+		else {
+			Mo *= 10;
+			Mo += N % 10;
+			N /= 10;
+		}
+	}
+	printf("%d %d", Me, Mo);
+	return 0;
+}
+-------------------------------------------
+* [ 문제 6-1 ]  
+-------------------------------------------
+#include <stdio.h>
+int main()
+{
+	int i, j, N;
+
+	scanf("%d", &N);
+
+	for (i = 1; i <= N; i++)
+        	{
+		for (j = i; j < N; j++)
+			printf(" ");
+		for (j = 1; j <= (2 * i - 1); j++)
+		{
+			if ( j == 1 || i == N || j == (2 * i - 1))
+				printf("X");
+			else
+				printf("O");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+-------------------------------------------
+* [ 문제 6-2 ]  
+-------------------------------------------
+#include <stdio.h>
+int main()
+{
+	int i, j, N;
+
+	scanf("%d", &N);
+    	while (N % 3 != 0 && N > 1)
+	{
+		for (i = 1; i <= N; i++)
+        	{
+			for (j = i; j < N; j++)
+				printf(" ");
+			for (j = 1; j <= (2 * i - 1); j++)
+			{
+				if ( j == 1 || i == N || j == (2 * i - 1))
+					printf("X");
+				else
+					printf("O");
+			}
+			printf("\n");
+		}
+		scanf("%d", &N);
+	}
+	return 0;
+}
+

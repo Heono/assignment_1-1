@@ -2,43 +2,34 @@
 #include <stdio.h>
 
 int main() {
-    int isU = 0;
-    int isFU = 0;
-    int flag = 0;
     char a;
+
+    char ll = -1;
+    char fu = -1;
+
+    int flag = 0;
 
     while (1) {
         scanf("%c", &a);
 
         if (a == '0') break;
 
-        if (!flag && 'A' <= a && a <= 'Z') {
-            isFU = 1;
-            flag = 1;
-        }
-        else if (!flag) {
-            flag = 1;
+        if (ll == -1 && fu == -1) {
+            if ('A' <= a && a <= 'Z') flag = 1;
         }
 
-        if (flag && ) isU = 1;
-
-        // 처음 + 대문자 
-        //
-
-
-
-
-        if (!isU && !isMix) {
-
+        if ('a' <= a && a <= 'z') {
+            if (ll < a || ll == -1) ll = a;
         }
-        else if (isU && !isMix) {
-
-        }
-        else if (isMix && !isFU) {
-
-        }
-        else if (isMix && isFU) {
-
+        if ('A' <= a && a <= 'Z') {
+            if (fu > a || fu == -1) fu = a;
         }
     }
+
+    if (ll == -1 && fu != -1) printf("%c", fu);
+    if (ll != -1 && fu == -1) printf("%c", ll);
+    if (!flag && ll != -1 && fu != -1) printf("%c%c", ll, fu);
+    if (flag && ll != -1 && fu != -1) printf("%c%c", fu, ll);
+
+    return 0;
 }

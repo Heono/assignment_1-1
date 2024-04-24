@@ -40,3 +40,4 @@ int main() {
     printf("%d\n", maxCnt);
     if (maxCnt) printf("%d", maxLast);
 }
+
