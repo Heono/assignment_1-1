@@ -1,0 +1,132 @@
+// 중괄호 좀 적자
+// 세미콜론 붙이자. 그렇다고 아무곳에나 세미콜론 붙이지 말자.
+// ex) for (int i = 0; i < 10; i++); <- 여기에 붙이면 안됨
+//     if (a > 0); <- 여기도 안됨
+//     while (a > 0); <- 여기도 안됨
+
+
+
+
+// i = 약수, n = 소인수 분해 할 수
+for (int i = 2; i < n; i++) {
+    if (n % i == 0) {
+        // i가 n의 약수일 경우
+        printf("%d ", i);
+        n /= i;
+    }
+}
+
+
+// 학점 평균, sum = 과목 점수 합
+double avg = sum / 5.0;
+printf("%.2f", avg); // 소수점 둘째 자리까지 출력
+
+
+// 문자 구분 
+char c = 0;
+scanf("%c", &c);
+
+if ('a' <= c && c <= 'z') {
+    // c가 소문자일 경우
+}
+if ('A' <= c && c <= 'Z') {
+    // c가 대문자일 경우
+}
+if ('0' <= c && c <= '1') {
+    // c가 숫자(문자)일 경우
+    int n = c - '0'; // 숫자(문자)를 그냥 숫자로 바꿈 ex) '7' -> 7
+}
+
+// 알파벳 순서 비교
+'a' < 'z' <=> 97 < 122 (동치) 
+
+
+// 최대 최소 초기화
+
+int min = -1, max = -1; // 음수는 절대로 입력 받지 않는 다는 가정하에 사용
+int input;
+while (1) {
+    scanf("%d", &input);
+
+    if (min == -1 && max == -1) {
+        min = input;
+        max = input;
+    }
+
+    if (input < min) min = input; // 최소값 찾기
+    if (input > max) max = input; // 최대값 찾기
+
+
+    // 축소 버전 -> 초기화와 최대 최소 비교 한번에
+
+    if (min == -1 || min > input) min = input;
+    if (max == -1 || max < input) max = input;
+}
+
+
+// 자리수 추출
+
+int n; // 추출할 정수
+int t; // 추출한 자리수를 저장할 변수 
+
+t = n % 10; // n의 일의 자리수 추출
+
+// 자리수 추출 응용 -> 역수 만들기
+
+int original; // 추출할 정수
+int reverse = 0; // 역수를 저장할 변수 
+int temp = original // 추출할 정수 값을 임시로 저장할 임시 변수
+
+while (temp != 0) {
+    reverse = reverse * 10; // 왼쪽으로 밀기
+    reverse = reverse + temp % 10; // 왼쪽으로 밀어서 새로 생긴 자리에 원래 정수 일의 자리수를 추출해서 집어넣기
+    temp = temp / 10; // 임시 변수 일의 자리수 버리기, 추출 했으므로... (오른쪽으로 밀기)
+}
+
+// 자리수 추출 응용 -> 대칭수 만들기
+
+int original; // 원래 정수
+int mirror = original; // 대칭수를 저장할 변수 
+int temp = original // 원래 정수 값을 임시로 저장할 임시 변수
+
+while (temp != 0) {
+    mirror = mirror * 10; // 왼쪽으로 밀기
+    mirror = mirror + temp % 10; // 왼쪽으로 민 다음에 원래 정수의 일의자리수 집어 넣기
+    temp = temp / 10; // 일의 자리수 사용했으므로 버리기 (오른쪽으로 밀기)
+}
+
+// 소인수 분해 -> (p+1)(q+1)(r+1) 이런 꼴로 개산해서 약수 개수 출력
+
+int n; // 소인수 분해 할 수
+int exp = 0; // 지수
+int total = 1; // 약수 개수, 0으로 초기화 하면 연산 결과 곱했을 때 0 돼버리므로 1로 초기화
+
+// divisor 는 나누는 수 
+for (int divisor = 2; divisor <= n; divisor++) {
+    while (n % divisor == 0) { // divisor가 n의 인수일 경우 반복
+        n = n / divisor; // 소인수 분해 할 수를 인수로 나누기
+        exp++; // 지수에 1 더하기
+    }
+    total *= (exp + 1);
+    exp = 0;
+}
+
+
+// 다른 부호의 정수들이 입력됨
+int present; // 현재 입력된 정수
+int past; // 전에 입력된 정수
+
+if (present * past < 0) {
+    //  전에 입력된 정수와 현재 입력된 정수의 부호가 다를 경우
+}
+
+
+// 종료 조건이 입력되기 전까지 반복
+
+int input;
+
+while (1) {
+    scanf("%d", &input);
+    if (input == 0) break; // 0을 입력받으면 (종료 조건) 반복문 종료
+}
+

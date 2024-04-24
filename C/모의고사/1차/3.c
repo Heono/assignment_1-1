@@ -12,7 +12,7 @@ int main() {
             sC = fC;
             fC = a;
         }
-        else if (a < sC && fC < sC) sC = a;
+        else if (a < sC && fC < sC) sC = a; // 이거 중요
     }
     printf("%c%c", fC, sC);
 
