@@ -9,7 +9,7 @@ int main() {
         scanf("%d", &num);
 
         if (num >= 100) {
-            count = 0; break;
+            count = 0; continue;
         }
 
         for (j = 2; j < num; j++) 
