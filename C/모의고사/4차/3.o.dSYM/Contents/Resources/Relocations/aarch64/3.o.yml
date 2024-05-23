@@ -1,0 +1,10 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/heonoo/Library/Mobile Documents/com~apple~CloudDocs/Univ/coding/assignment_1-1/C/모의고사/4차/3.o"
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003C08, symSize: 0x1F0 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003C08, symSize: 0x1F0 }
+  - { offsetInCU: 0xE7, offset: 0xE7, size: 0x8, addend: 0x0, symName: __Z12prime_numberi, symObjAddr: 0x1F0, symBinAddr: 0x100003DF8, symSize: 0x80 }
+  - { offsetInCU: 0x121, offset: 0x121, size: 0x8, addend: 0x0, symName: __Z10odd_numberi, symObjAddr: 0x270, symBinAddr: 0x100003E78, symSize: 0x88 }
+  - { offsetInCU: 0x14D, offset: 0x14D, size: 0x8, addend: 0x0, symName: __Z12count_numberii, symObjAddr: 0x2F8, symBinAddr: 0x100003F00, symSize: 0x6C }
+...

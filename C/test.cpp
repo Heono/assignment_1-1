@@ -1,17 +1,20 @@
 #include <stdio.h>
 
-int main() {
-   
-   int n = 12; // 소인수 분해 할 수
+// 1. 반환값 지정
+int max(int x, int y);
 
-   for (int i = 2; i <= n; i++) {
-    while (n % i == 0) {
-        // i가 n의 약수일 경우
-        printf("%d ", i);
-        n /= i;
-    }
+int main() 
+{
+    int x,y;
+    scanf("%d %d", &x, &y);
+    printf("%d", max(x,y));
+    return 0;
 }
 
-   return 0;
-
-}
+int max(int x, int y) 
+{
+    int maximum;
+    if (x>y) maximum = x; 
+    else maximum = y;
+    return maximum;
+} 
